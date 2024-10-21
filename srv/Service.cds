@@ -8,5 +8,8 @@ service EmployeeManagementService @(path:'/employeemanagement') @(impl: '/srv/ha
     * } where DELETED = false;
 
   entity Company as projection on empdb.Company;
-
+  
+  entity BusinessPart as projection on empdb.BusinesPartner{ 
+    BusinessPartner
+    }
 }

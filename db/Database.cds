@@ -6,6 +6,8 @@ using {
 
 using {demo.util.aspects as localaspects} from './utils/Aspects';
 
+ 
+using {API_BUSINESS_PARTNER as external} from '../srv/external/API_BUSINESS_PARTNER';
 
 
 entity Employee : managed, localaspects.common {
@@ -15,7 +17,11 @@ entity Employee : managed, localaspects.common {
         CompanyName  : String(40);
         ItsAddress   : Composition of one Address
                        on ItsAddress.parent = $self;
+        BPartner : String(80);
+                
 }
+
+entity BusinesPartner as projection on external.A_BusinessPartner;
 
 entity Address : managed, localaspects.common  {
     parent : Association to  Employee;

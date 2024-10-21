@@ -14,7 +14,6 @@
         "@sap/xssec": "3.3.2",
         "cds-swagger-ui-express": "^0.5.0",
         "express": "^4",
-        "hana-cli": "^3.202404.1",
         "passport": "^0.4.1"
     },
     "devDependencies": {
