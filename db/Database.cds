@@ -48,3 +48,15 @@ key     EMPLOYEEID: String(10)  @title: 'EMPLOYEEID: EMPLOYEEID' ;
         POSTCODE: String(10)  @title: 'POSTCODE: POSTCODE' ; 
 }
 
+@cds.persistence.exists 
+@cds.persistence.calcview 
+Entity mycalview {
+key     EMPLOYEEID: String(10)  @title: 'EMPLOYEEID: EMPLOYEEID' ; 
+        COMPANYNAME: String(40)  @title: 'COMPANYNAME: COMPANYNAME' ; 
+        BPARTNER: String(80)  @title: 'BPARTNER: BPARTNER' ; 
+        ADDRESS: String(80)  @title: 'ADDRESS: ADDRESS' ; 
+        CITY: String(10)  @title: 'CITY: CITY' ; 
+}
+
+
+

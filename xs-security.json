@@ -6,6 +6,18 @@
     {
       "name": "uaa.user",
       "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Full access to all services"
+    },
+    {
+      "name": "$XSAPPNAME.Editor",
+      "description": "Edit access to specific resources"
+    },
+    {
+      "name": "$XSAPPNAME.Viewer",
+      "description": "Read-only access to all services"
     }
   ],
   "role-templates": [
@@ -14,6 +26,22 @@
       "description": "UAA",
       "scope-references": [
         "uaa.user"
+      ]
+    },
+    {
+      "name": "AdminRole",
+      "description": "Role for administrators with full access",
+      "scope-references": [
+        "$XSAPPNAME.Admin",
+        "$XSAPPNAME.Viewer"
+      ]
+    },
+    {
+      "name": "EditorRole",
+      "description": "Role for editors with limited access",
+      "scope-references": [
+        "$XSAPPNAME.Editor",
+        "$XSAPPNAME.Viewer"
       ]
     }
   ] ,

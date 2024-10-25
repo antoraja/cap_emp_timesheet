@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="testcal" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true" application="BAS">
-<descriptions defaultDescription="testcal"/>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="mycalview" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true" application="BAS">
+<descriptions defaultDescription="mycalview"/>
 <localVariables/>
 <variableMappings/>
 <dataSources>
@@ -17,21 +17,21 @@
     <viewAttributes>
       <viewAttribute id="EMPLOYEEID"/>
       <viewAttribute id="COMPANYNAME"/>
+      <viewAttribute id="BPARTNER"/>
       <viewAttribute id="ADDRESS"/>
       <viewAttribute id="CITY"/>
-      <viewAttribute id="POSTCODE"/>
       <viewAttribute hidden="true" id="JOIN$EMPLOYEEID$EMPLOYEEID"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="EMPLOYEE_DB_EMPLOYEE">
       <mapping xsi:type="Calculation:AttributeMapping" target="EMPLOYEEID" source="EMPLOYEEID"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="COMPANYNAME" source="COMPANYNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BPARTNER" source="BPARTNER"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$EMPLOYEEID$EMPLOYEEID" source="EMPLOYEEID"/>
     </input>
     <input node="EMPLOYEE_DB_ADDRESS">
       <mapping xsi:type="Calculation:AttributeMapping" target="ADDRESS" source="ADDRESS"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="POSTCODE" source="POSTCODE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$EMPLOYEEID$EMPLOYEEID" source="EMPLOYEEID"/>
     </input>
     <joinAttribute name="JOIN$EMPLOYEEID$EMPLOYEEID"/>
@@ -48,17 +48,17 @@
       <descriptions defaultDescription="COMPANYNAME"/>
       <keyMapping columnObjectName="Join_1" columnName="COMPANYNAME"/>
     </attribute>
-    <attribute id="ADDRESS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="BPARTNER" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BPARTNER"/>
+      <keyMapping columnObjectName="Join_1" columnName="BPARTNER"/>
+    </attribute>
+    <attribute id="ADDRESS" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="ADDRESS"/>
       <keyMapping columnObjectName="Join_1" columnName="ADDRESS"/>
     </attribute>
-    <attribute id="CITY" order="4" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CITY" order="5" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="CITY"/>
       <keyMapping columnObjectName="Join_1" columnName="CITY"/>
-    </attribute>
-    <attribute id="POSTCODE" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="POSTCODE"/>
-      <keyMapping columnObjectName="Join_1" columnName="POSTCODE"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
@@ -71,17 +71,18 @@
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
       <upperLeftCorner x="40" y="85"/>
     </shape>
+    
+  
     <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="107" y="219"/>
+      <upperLeftCorner x="495" y="204"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-  
     <shape modelObjectName="EMPLOYEE_DB_EMPLOYEE" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
       <rectangleSize width="228.0390625"/>
     </shape>
     <shape modelObjectName="EMPLOYEE_DB_ADDRESS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="396" y="4"/>
+      <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="220.03515625"/>
     </shape>
   </shapes>
